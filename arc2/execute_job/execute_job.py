@@ -47,6 +47,7 @@ def execute_job_helper(*, job_type: str, job_params: dict):
         print(message)
     elif job_type == 'import_session_from_dandi':
         from .. import dj_init  # noqa: F401
+        from ..dj_init import DENDRO_PROJECT_ID
         from .import_session_from_dandi import import_session_from_dandi
         nwb_file_id = job_params['nwb_file_id']
         dandiset_id = job_params['dandiset_id']
@@ -54,6 +55,7 @@ def execute_job_helper(*, job_type: str, job_params: dict):
         nwb_file_path = job_params['nwb_file_path']
         nwb_file_url = job_params['nwb_file_url']
         import_session_from_dandi(
+            dendro_project_id=DENDRO_PROJECT_ID,
             nwb_file_id=nwb_file_id,
             dandiset_id=dandiset_id,
             dandiset_version=dandiset_version,

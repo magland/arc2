@@ -14,6 +14,10 @@ SPYGLASS_INSTANCE = config.get("spyglass_instance", None)
 if SPYGLASS_INSTANCE is None:
     raise Exception("Please set spyglass_instance in the config file")
 
+DENDRO_PROJECT_ID = config.get("dendro_project_id", None)
+if DENDRO_PROJECT_ID is None:
+    raise Exception("Please set dendro_project_id in the config file")
+
 if SPYGLASS_INSTANCE == "franklab":
     DJ_DATABASE_HOST = os.environ.get("DJ_DATABASE_HOST_FRANKLAB", None)
     if DJ_DATABASE_HOST is None:
